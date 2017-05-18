@@ -30,12 +30,21 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: vueLoaderConfig
+        options:{
+            cssModules: {
+              localIdentName: '[name]-[local]-[hash:base64:5]',
+              camelCase: true
+            }
+          }
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test')]
+      },
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

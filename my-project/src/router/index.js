@@ -5,6 +5,7 @@ import Hello from '@/container/test/Hello'
 Vue.use(Router);
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
