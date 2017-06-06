@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/container/test/Hello'
+import Guide from '@/components/private/guide'
 
 Vue.use(Router);
 
@@ -9,8 +9,22 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'guide',
+      component: Guide,
+      children:[
+        {
+          path: '/task',
+          component: resolve => require(['@/components/private/guide/task/task.vue'], resolve)
+        },
+        {
+          path: '/taskList',
+          component: resolve => require(['@/components/private/guide/tasklist/tasklist.vue'], resolve)
+        },
+        {
+          path: '/willTask',
+          component: resolve => require(['@/components/private/guide/willtask/willtask.vue'], resolve)
+        }
+      ]
     }
   ]
 })

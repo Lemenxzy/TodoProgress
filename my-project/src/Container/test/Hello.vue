@@ -1,5 +1,6 @@
 <template>
   <div :class="$style.hello">
+
     <h1>{{ msg }}</h1>
     <h2>thanks</h2>
   </div>
