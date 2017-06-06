@@ -13,6 +13,10 @@ export default new Router({
       component: Guide,
       children:[
         {
+          path: '/',
+          component: resolve => require(['@/components/private/guide/task/task.vue'], resolve)
+        },
+        {
           path: '/task',
           component: resolve => require(['@/components/private/guide/task/task.vue'], resolve)
         },
