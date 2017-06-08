@@ -27,7 +27,15 @@ export default new Router({
         {
           path: '/willTask',
           component: resolve => require(['@/components/private/guide/willtask/willtask.vue'], resolve)
-        }
+        },
+        {
+          path: '/Login',
+          component: resolve => require(['@/components/private/guide/login/login.vue'], resolve)
+        },
+        {
+          path: '/Resign',
+          component: resolve => require(['@/components/private/guide/resign/resign.vue'], resolve)
+        }  
       ]
     }
   ]

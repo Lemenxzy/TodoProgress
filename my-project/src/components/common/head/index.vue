@@ -13,6 +13,12 @@
             <li :class="$style.navlist">
                 <router-link :to="'willTask'">willTask</router-link>
             </li>
+            <li :class="$style.navlistright">
+                <router-link :to="'Login'">login</router-link>
+            </li>
+            <li :class="$style.navlistright">
+                <router-link :to="'Resign'">resign</router-link>
+            </li>
             <li :class="$style.clear"></li>
         </ul>
     </div>
@@ -32,15 +38,27 @@
     ul .navlist{
         float: left;
     }
+
+
+    ul .navlistright{
+       float: right;
+    }
     .navfirst{
         font-weight: bolder;
         font-size: 16px;
     }
     ul .navlist a{
         display: inline-block;
-        padding: 6px 20px;
+        padding: 12px 20px;
         color:#fefefe;
     }
+
+    ul .navlistright a{
+        display: inline-block;
+        padding: 12px 20px;
+        color:#ccc;
+    }
+
     .clear{
         clear:both;
     }
