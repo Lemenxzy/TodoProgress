@@ -13,10 +13,8 @@
       return {}
     },
     created() {
-      this.$http.get('/static').then((response) => {
+      this.$http.get('static/json/data.json').then((response) => {
         console.log(response.body)
-      }).then((response) => {
-        console.log('cannot get the data!')
       })
     },
     components: {
