@@ -5,10 +5,10 @@
                 <router-link :to="'task'">TDList</router-link>
             </li>
             <li :class="$style.navlist">
-                <router-link :to="'task'">Home</router-link>
+                <router-link :to="'task'">task</router-link>
             </li>
             <li :class="$style.navlist">
-                <router-link :to="'taskList'">list</router-link>
+                <router-link :to="'taskList'">tasklist</router-link>
             </li>
             <li :class="$style.navlist">
                 <router-link :to="'willTask'">willTask</router-link>
