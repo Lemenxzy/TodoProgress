@@ -1,7 +1,7 @@
 <template>
     <div :class="$style.task">
-        11111111111111111
-      <todaylist :task="task"></todaylist>
+      <todaylist :taskData="task"></todaylist>
+      <v-btn-link class="waves-effect waves-light btn">Toast!</v-btn-link>
     </div>
 </template>
 

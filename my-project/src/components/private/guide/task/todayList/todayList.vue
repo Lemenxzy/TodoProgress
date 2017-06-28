@@ -1,6 +1,6 @@
 <template>
 <div class="todaylist">
-  <div v-for="item in task.task.currentTask">
+  <div v-for="item in taskData.task.currentTask">
     <div class="title">{{item.title}}</div>
     <div class="lists">
       <ul>
@@ -18,7 +18,7 @@
         }
       },
       props: {
-        task: {
+        taskData: {
           type: Object
         }
       }
