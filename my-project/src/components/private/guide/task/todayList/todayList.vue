@@ -1,15 +1,27 @@
 <template>
 <div class="todaylist">
-  <div class="title">123</div>
-  <div class="lists">
-    <input type="checkbox" name="coffee" value="cof">加咖啡
+  <div v-for="item in task.task.currentTask">
+    <div class="title">{{item.title}}</div>
+    <div class="lists">
+      <ul>
+        <li v-for="listitem in item.list">{{listitem.content}}</li>
+      </ul>
+    </div>
   </div>
 </div>
 </template>
 
 <script type="text/ecmascript-6">
     export default {
-
+      data() {
+        return {
+        }
+      },
+      props: {
+        task: {
+          type: Object
+        }
+      }
     };
 </script>
 

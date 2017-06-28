@@ -1,20 +1,26 @@
 <template>
     <div :class="$style.task">
         11111111111111111
-      <todaylist></todaylist>
+      <todaylist :task="task"></todaylist>
     </div>
 </template>
 
 <script>
   import todayList from  './todayList/todayList';
 
+  const ERR_OK = 0;
   export default {
     data() {
-      return {}
+      return {
+        task: {}
+      }
     },
     created() {
       this.$http.get('static/json/data.json').then((response) => {
-        console.log(response.body)
+        let res = response.body;
+        if(res.status === ERR_OK) {
+            this.task = res.data;
+        }
       })
     },
     components: {
