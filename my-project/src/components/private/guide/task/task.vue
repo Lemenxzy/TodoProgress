@@ -17,10 +17,11 @@
     },
     created() {
       this.$http.get('static/json/data.json').then((response) => {
-        let res = response.body;
+        let res = response.body
+        console.log(res)
         if(res.status === ERR_OK) {
-            this.task = res.data;
-        }
+            this.task = res.task
+    }
       })
     },
     components: {

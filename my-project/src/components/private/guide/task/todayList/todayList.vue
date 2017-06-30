@@ -1,10 +1,15 @@
 <template>
-<div class="todaylist">
-  <div v-if="taskData.task.currentTask" v-for="item in taskData.task.currentTask">
+<div class="todaylist" v-if="taskData.currentTask" >
+  <div v-for="item in taskData.currentTask">
     <div class="title">{{item.title}}</div>
     <div class="lists">
       <ul>
-        <li v-for="listitem in item.list">{{listitem.content}}</li>
+        <li v-for="listitem in item.list">{{listitem.content}}
+          <div class="input-field">
+          <!--<v-checkbox name="checkbox1" id="checkbox1" filled-in checked>Filled In</v-checkbox>-->
+          </div>
+        </li>
+
       </ul>
     </div>
   </div>
@@ -24,7 +29,10 @@
         }
       },
       created() {
-
+//        console.log(this.taskData)
+      },
+      mounted() {
+//        console.log(this.taskData)
       }
     };
 </script>
