@@ -1,6 +1,6 @@
 <template>
 <div class="todaylist">
-  <div v-for="item in taskData.task.currentTask">
+  <div v-if="taskData.task.currentTask" v-for="item in taskData.task.currentTask">
     <div class="title">{{item.title}}</div>
     <div class="lists">
       <ul>
@@ -15,12 +15,16 @@
     export default {
       data() {
         return {
+
         }
       },
       props: {
         taskData: {
           type: Object
         }
+      },
+      created() {
+
       }
     };
 </script>
