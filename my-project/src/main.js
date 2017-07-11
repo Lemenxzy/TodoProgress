@@ -7,6 +7,7 @@ import VueResource from 'vue-resource'
 import VueMaterials from 'vue-materials'
 import '@/static/sass/rest.sass'
 import '@/static/css/materialize.css'
+import '@/static/css/icon.css'
 
 
 Vue.config.productionTip = false

@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.btncontainer">
-    <v-fab icon="list" horizontal>
+    <v-fab icon="done_all" horizontal>
       <ul slot="items">
         <li>
           <v-btn-link floating class="red"><v-icon>insert_chart</v-icon></v-btn-link>
@@ -24,7 +24,7 @@
       name: 'createlist',
       data () {
         return {
-      //你想导入什么？这个组件吗？嗯
+
         }
       }
     };

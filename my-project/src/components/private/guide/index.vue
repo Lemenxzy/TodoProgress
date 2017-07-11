@@ -30,4 +30,9 @@
         display: block;
     }
 
+    i{
+      font-size:36px;
+      color: #26a69a;
+    }
+
 </style>
