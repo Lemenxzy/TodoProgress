@@ -6,10 +6,9 @@
       <ul>
         <li v-for="listitem in item.list">
           <div class="input-field">
-          <v-checkbox name="checkbox1" id="checkbox1"  checked>{{listitem.content}}</v-checkbox>
+          <v-checkbox v-bind:name="listitem.id" v-bind:id="listitem.id"  checked>{{listitem.content}}</v-checkbox>
           </div>
         </li>
-
       </ul>
     </div>
   </div>
