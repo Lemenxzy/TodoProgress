@@ -2,11 +2,14 @@
     <div :class="$style.hello">
         <todo-head></todo-head>
         <router-view></router-view>
+        <create-list></create-list>
     </div>
+
 </template>
 
 <script>
     import todohead from '@/components/common/head'
+    import createlist from '@/components/common/createlist'
     export default {
         name: 'guide',
         data () {
@@ -15,7 +18,8 @@
             }
         },
         components : {
-            'todo-head': todohead
+            'todo-head': todohead,
+            'create-list': createlist
         }
     }
 </script>

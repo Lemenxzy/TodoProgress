@@ -1,12 +1,12 @@
 <template>
-<div class="todaylist" v-if="taskData.currentTask" >
-  <div v-for="item in taskData.currentTask">
-    <div class="title">{{item.title}}</div>
-    <div class="lists">
+<div :class="$style.todaylist"  v-if="taskData.currentTask" class="container">
+  <div :class="$style.outer" v-for="item in taskData.currentTask">
+    <div :class="$style.title"><h5>{{item.title}}</h5></div>
+    <div :class="$style.lists">
       <ul>
-        <li v-for="listitem in item.list">{{listitem.content}}
+        <li v-for="listitem in item.list">
           <div class="input-field">
-          <!--<v-checkbox name="checkbox1" id="checkbox1" filled-in checked>Filled In</v-checkbox>-->
+          <v-checkbox name="checkbox1" id="checkbox1"  checked>{{listitem.content}}</v-checkbox>
           </div>
         </li>
 
@@ -29,7 +29,7 @@
         }
       },
       created() {
-//        console.log(this.taskData)
+
       },
       mounted() {
 //        console.log(this.taskData)
@@ -38,6 +38,27 @@
 </script>
 
 <style lang="sass" module>
+  .todaylist{
+    margin-top:60px;
 
+
+    font-size:14px;
+  }
+
+  .outer{
+    margin-bottom:60px;
+    .title{
+      color: #00bfa5;
+      border-bottom:2px solid #00bfa5;
+    }
+
+    .lists{
+
+
+      li{
+        margin:10px 0;
+      }
+    }
+  }
 
 </style>

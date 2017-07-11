@@ -33,7 +33,7 @@
     .header{
         width: 100%;
         min-width: 1200px;
-        background: #333;
+        background: #26a69a;
     }
     ul .navlist{
         float: left;
@@ -56,7 +56,7 @@
     ul .navlistright a{
         display: inline-block;
         padding: 12px 20px;
-        color:#ccc;
+        color:#fff;
     }
 
     .clear{

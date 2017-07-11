@@ -1,12 +1,11 @@
 <template>
     <div :class="$style.task">
       <todaylist :taskData="task"></todaylist>
-      <v-btn-link class="waves-effect waves-light btn">Toast!</v-btn-link>
     </div>
 </template>
 
 <script>
-  import todayList from  './todayList/todayList';
+  import todayList from  './todayList/todayList'
 
   const ERR_OK = 0;
   export default {
