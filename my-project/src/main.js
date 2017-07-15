@@ -8,8 +8,8 @@ import VueResource from 'vue-resource'
 import VueMaterials from 'vue-materials'
 import '@/static/sass/rest.sass'
 import '@/static/css/materialize.css'
-import '@/static/css/material-icons.css'
 import 'materialize-css'
+
 
 
 console.log(jQuery)
