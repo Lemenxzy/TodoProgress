@@ -9,7 +9,7 @@ import '@/static/sass/rest.sass'
 import '@/static/css/materialize.css'
 import '@/static/css/material-icons.css'
 
-
+//这是新的分支
 Vue.config.productionTip = false
 
 Vue.use(VueResource)
