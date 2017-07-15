@@ -11,10 +11,6 @@ import '@/static/css/materialize.css'
 import '@/static/css/material-icons.css'
 
 
-
-
-console.log(jQuery)
-
 Vue.config.productionTip = false
 
 Vue.use(VueResource)
