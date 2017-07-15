@@ -1,9 +1,10 @@
 <template>
     <div :class="$style.hello">
         <todo-head></todo-head>
-        <router-view></router-view>
-        <create-list></create-list>
-
+        <v-container>
+          <router-view></router-view>
+          <create-list></create-list>
+        </v-container>
     </div>
 
 </template>

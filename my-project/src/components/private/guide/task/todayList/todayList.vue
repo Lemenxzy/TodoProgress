@@ -6,7 +6,7 @@
       <ul>
         <li v-for="listitem in item.list">
           <div class="input-field">
-          <v-checkbox v-bind:name="'list' + listitem.id" v-bind:id="'list' + listitem.id"  checked>{{listitem.content}}</v-checkbox>
+            <v-checkbox v-model="listitem.finished" :label="listitem.content" hide-details>111s</v-checkbox>
           </div>
         </li>
       </ul>
@@ -19,7 +19,7 @@
     export default {
       data() {
         return {
-
+          hover: true
         }
       },
       props: {
@@ -39,8 +39,6 @@
 <style lang="sass" module>
   .todaylist{
     margin-top:60px;
-
-
     font-size:14px;
   }
 
@@ -52,8 +50,6 @@
     }
 
     .lists{
-
-
       li{
         margin:10px 0;
       }
