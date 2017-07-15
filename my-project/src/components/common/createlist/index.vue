@@ -1,6 +1,5 @@
 <template>
-  <div :class="$style.btncontainer">
-    <v-fab icon="done_all" horizontal>
+    <v-fab icon="list" horizontal v-on:open="showBtn()">
       <ul slot="items">
         <li>
           <v-btn-link floating class="red"><v-icon>insert_chart</v-icon></v-btn-link>
@@ -16,7 +15,6 @@
         </li>
       </ul>
     </v-fab>
-  </div>
 </template>
 
 <script type="text/ecmascript-6">
@@ -25,6 +23,11 @@
       data () {
         return {
 
+        }
+      },
+      method:{
+        showBtn(){
+          console.log("111111");
         }
       }
     };

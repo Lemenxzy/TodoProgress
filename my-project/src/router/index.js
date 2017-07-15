@@ -9,7 +9,6 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'guide',
       component: Guide,
       children:[
         {
