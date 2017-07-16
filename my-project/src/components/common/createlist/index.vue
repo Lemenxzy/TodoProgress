@@ -54,7 +54,7 @@
       name: 'createlist',
       data () {
         return {
-          direction: "top",
+          direction: "left",
           fixed: true,
           fab: false,
           fling: false,
@@ -64,7 +64,7 @@
           right: true,
           bottom: true,
           left: false,
-          transition: 'slide-y-reverse-transition'
+          transition: 'slide-x-reverse-transition'
         }
       },
       watch: {
