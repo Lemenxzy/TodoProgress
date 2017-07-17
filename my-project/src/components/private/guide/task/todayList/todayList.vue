@@ -12,7 +12,6 @@
       </ul>
     </div>
   </div>
-  <v-checkbox v-model="checked" label="check the checkbox" hide-details></v-checkbox>
 </div>
 </template>
 
@@ -30,7 +29,7 @@
       },
       computed:{
         taskdata: function () {
-          return this.task
+          return this.$store.state.totalList
         }
       },
       beforeCreate() {
