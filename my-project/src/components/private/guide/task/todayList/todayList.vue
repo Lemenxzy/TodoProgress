@@ -1,16 +1,22 @@
 <template>
-<div :class="$style.todaylist" v-if="taskdata.currentTask" class="container">
-  <div :class="$style.outer" v-for="item in taskdata.currentTask">
+<div :class="$style.todaylist" v-if="task.currentTask" class="container">
+  <div :class="$style.outer" v-for="item in task.currentTask">
     <div :class="$style.title"><h5>{{item.title}}</h5></div>
     <div :class="$style.lists">
-      <ul>
-        <li v-for="listitem in item.list">
-          <div class="input-field">
-            <v-checkbox v-model="listitem.finished" :label="listitem.content" hide-details></v-checkbox>
-          </div>
+      <transition-group name="list" tag="ul">
+        <li v-for="(listitem,index) in item.list" v-bind:key="'list-' + listitem.id" v-if="!listitem.finished">
+            <v-checkbox   v-model="listitem.finished" :label="listitem.content" hide-details></v-checkbox>
         </li>
-      </ul>
+      </transition-group>
     </div>
+  </div>
+  <div id="demo">
+    <button v-on:click="change">
+      Toggle
+    </button>
+    <transition>
+      <p v-if="show">test</p>
+    </transition>
   </div>
 </div>
 </template>
@@ -19,49 +25,50 @@
     export default {
       data() {
         return {
-          checked:true
-        }
-      },
-      props: {
-        task: {
-          type: Object
+          show: true,
+          checked: true
         }
       },
       computed:{
-        taskdata: function () {
+        task: function () {
           return this.$store.state.totalList
         }
       },
+      methods:{
+        change: function(e){
+          this.show = !this.show;
+        }
+      },
       beforeCreate() {
-        console.log("beforeCreate: this.taskdata is: ", this.taskdata);
+        console.log("beforeCreate: this.task is: ", this.task);
       },
 
       created() {
-        console.log("created: this.taskdata is: ", this.taskdata);
+        console.log("created: this.task is: ", this.task);
       },
 
       beforMount() {
-        console.log("beforeMount: this.taskdata is: ", this.taskdata);
+        console.log("beforeMount: this.task is: ", this.task);
       },
 
       mounted() {
-        console.log("mounted: this.taskdata is: ", this.taskdata);
+        console.log("mounted: this.task is: ", this.task);
       },
 
       beforeUpdate() {
-        console.log("beforeUpdate: this.taskdata is: ", this.taskdata);
+        console.log("beforeUpdate: this.task is: ", this.task);
       },
 
       updated(){
-        console.log("updated: this.taskdata is: ", this.taskdata);
+        console.log("updated: this.task is: ", this.task);
       },
 
       beforeDestroy() {
-        console.log("beforeDestroy: this.taskdata is: ", this.taskdata);
+        console.log("beforeDestroy: this.task is: ", this.task);
       },
 
       destroyed() {
-        console.log("destroyed: this.taskdata is: ", this.taskdata);
+        console.log("destroyed: this.task is: ", this.task);
       }
     };
 </script>
@@ -73,17 +80,35 @@
   }
 
   .outer{
+
     margin-bottom:60px;
+
     .title{
       color: #00bfa5;
       border-bottom:2px solid #00bfa5;
     }
 
     .lists{
+      height:300px;
       li{
         margin:10px 0;
+        height:30px;
       }
     }
+  }
+
+ /*p{*/
+      /*height:200px;*/
+      /*width:200px;*/
+      /*opacity: 1;*/
+  /*}*/
+
+
+  .v-enter-active, .v-leave-active {
+    transition: opacity 1s
+  }
+  .v-enter, .v-leave-to{
+    opacity: 0
   }
 
 </style>
