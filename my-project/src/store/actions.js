@@ -14,7 +14,7 @@ export default{
       let res = response.body
       console.log("this res is: ", res)
       if(res.status === ERR_OK) {
-        commit( types.INIT_DATA, res.task )
+        commit( types.INIT_DATA, res.task.currentTask )
       }
     })
   },

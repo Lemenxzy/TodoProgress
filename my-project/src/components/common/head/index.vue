@@ -37,6 +37,8 @@
     }
     ul .navlist{
         float: left;
+        margin-bottom:-1px;
+        height:100%;
     }
 
 
@@ -51,6 +53,13 @@
         display: inline-block;
         padding: 12px 20px;
         color:#fefefe;
+    }
+
+    ul .navlist:hover{
+      border-bottom:2px solid #ffeb3b;
+    }
+    ul .navfirst:hover{
+      border-bottom: none;
     }
 
     ul .navlistright a{

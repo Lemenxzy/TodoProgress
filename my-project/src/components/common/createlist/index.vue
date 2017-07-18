@@ -13,27 +13,27 @@
     >
       <v-btn
         slot="activator"
-        class="blue darken-2"
+        class="yellow"
         dark
         fab
         hover
         v-model="fab">
-        <v-icon>account_circle</v-icon>
+        <v-icon>edit</v-icon>
         <v-icon>close</v-icon>
       </v-btn>
       <v-btn
         fab
         dark
         small
-        class="green"
+        class="red accent-2"
       >
-        <v-icon>edit</v-icon>
+        <v-icon>account_circle</v-icon>
       </v-btn>
       <v-btn
         fab
         dark
         small
-        class="indigo"
+        class="teal accent-4"
       >
         <v-icon>add</v-icon>
       </v-btn>
@@ -41,7 +41,7 @@
         fab
         dark
         small
-        class="red"
+        class="cyan darken-1"
       >
         <v-icon>delete</v-icon>
       </v-btn>
@@ -93,7 +93,7 @@
       },
       method:{
         showBtn(){
-          console.log("111111");
+
         }
       }
     };

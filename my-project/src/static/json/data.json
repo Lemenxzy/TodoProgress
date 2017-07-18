@@ -4,6 +4,7 @@
     "currentTask": [
       {
         "title": "日常任务",
+        "allDone":false,
         "list": [
           {
             "id": 0,

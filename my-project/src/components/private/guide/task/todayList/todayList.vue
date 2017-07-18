@@ -1,22 +1,36 @@
 <template>
-<div :class="$style.todaylist" v-if="task.currentTask" class="container">
-  <div :class="$style.outer" v-for="item in task.currentTask">
-    <div :class="$style.title"><h5>{{item.title}}</h5></div>
+<div :class="$style.todaylist"
+     v-if="task"
+     class="container">
+  <div :class="$style.outer"
+       v-for="item in task">
+    <div :class="$style.title">
+      <h5>{{item.title}}</h5>
+    </div>
     <div :class="$style.lists">
-      <transition-group name="list" tag="ul">
-        <li v-for="(listitem,index) in item.list" v-bind:key="'list-' + listitem.id" v-if="!listitem.finished">
-            <v-checkbox   v-model="listitem.finished" :label="listitem.content" hide-details></v-checkbox>
+      <transition-group tag="ul"
+                        v-on:leave="leave"
+                        v-bind:css="false">
+        <li v-for="(listitem,index) in item.list"
+            v-bind:key="'list-' + listitem.id"
+            @click="deletList(item, index )" >
+
+            <v-checkbox  v-model="listitem.finished"
+                         :label="listitem.content"
+                         hide-details>
+            </v-checkbox>
         </li>
       </transition-group>
+      <transition name="done"
+                  :enter-class="$style.doneEn"
+                  :enter-active-class="$style.doneActive"
+                  :enter-to-class="$style.doneEnto">
+        <div :class="$style.done" v-if="item.allDone">
+          今天的{{item.title}}做完了！
+        </div>
+      </transition>
+
     </div>
-  </div>
-  <div id="demo">
-    <button v-on:click="change">
-      Toggle
-    </button>
-    <transition>
-      <p v-if="show">test</p>
-    </transition>
   </div>
 </div>
 </template>
@@ -25,7 +39,6 @@
     export default {
       data() {
         return {
-          show: true,
           checked: true
         }
       },
@@ -35,8 +48,33 @@
         }
       },
       methods:{
-        change: function(e){
-          this.show = !this.show;
+        deletList:function(item,index){
+          item.list.splice(index,1);
+          console.log("this item is: ", item.list);
+          if(item.list.length === 0){
+              item.allDone = true;
+          }
+        },
+        doneBeforeEnter: function(el,done){
+          console.log(1111);
+          Velocity(el, {
+            translateX: '1200px',
+            opacity: 0
+          }, {
+            delay: 500,
+            complete: done })
+        },
+        doneEnter: function (el, done) {
+
+        },
+
+        leave: function (el, done) {
+          Velocity(el, {
+            translateX: '1200px',
+            opacity: 0
+          }, {
+            delay: 500,
+            complete: done })
         }
       },
       beforeCreate() {
@@ -74,41 +112,43 @@
 </script>
 
 <style lang="sass" module>
+  $height:300px;
+
   .todaylist{
     margin-top:60px;
     font-size:14px;
   }
 
-  .outer{
+  .outer {
 
-    margin-bottom:60px;
+    margin-bottom: 60px;
 
-    .title{
+    .title {
       color: #00bfa5;
-      border-bottom:2px solid #00bfa5;
+      border-bottom: 2px solid #00bfa5;
     }
 
-    .lists{
-      height:300px;
-      li{
-        margin:10px 0;
-        height:30px;
+    .lists {
+      height: $height;
+      overflow: hidden;
+      li {
+        margin: 10px 0;
+        height: 30px;
       }
+
+      .done {
+        height:$height;
+        line-height:$height;
+        text-align:center;
+      }
+     }/*end lists*/
+
+    .doneEn{
+      opacity: 0
+    }
+
+    .doneActive{
+      transition: opacity 1s ease 1s
     }
   }
-
- /*p{*/
-      /*height:200px;*/
-      /*width:200px;*/
-      /*opacity: 1;*/
-  /*}*/
-
-
-  .v-enter-active, .v-leave-active {
-    transition: opacity 1s
-  }
-  .v-enter, .v-leave-to{
-    opacity: 0
-  }
-
 </style>
